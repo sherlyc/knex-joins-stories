@@ -13,4 +13,19 @@ router.get('/list', function (req,res){
   })
 })
 
+
+router.get('/view/:id', function (req,res) {
+  let id = req.params.id
+  let db = req.app.get('db')
+  db("wombles")
+  .select('name','description')
+  .join('characteristics','wombles.characteristic_id','=','characteristics.id')
+  .where('wombles.id', id)
+  .then((results)=> {
+    res.render('view', {wombles:results})
+  })
+})
+
+
+
 module.exports = router
