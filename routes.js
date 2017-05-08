@@ -2,9 +2,15 @@ var express = require('express')
 var router = express.Router()
 
 router.get('/', function (req, res) {
-  //use req.app.get('db') to get the knex connection that was set in server
-  //console.log(req.app.get('db'))
-  res.send('WOMBLES!')
+  res.redirect('/list')
+})
+
+router.get('/list', function (req,res){
+  let db = req.app.get('db')
+  db("wombles")
+  .then((results) => {
+    res.render('lists', {wombles:results})
+  })
 })
 
 module.exports = router
