@@ -35,6 +35,21 @@ router.get('/view/:id', function (req,res) {
   })
 })
 
+router.get('/add', function (req, res) {
+  res.render('add')
+})
+
+router.post('/add', function (req, res) {
+   var wombleName = req.body.wombleName
+   var character = req.body.characteristics
+   console.log(wombleName)
+   //res.send(wombleName);
+
+  //  let db = req.app.get('db')
+  //  db("wombles")
+  //   .insert
+})
+
 
 
 module.exports = router
