@@ -35,6 +35,16 @@ router.get('/view/:id', function (req,res) {
   })
 })
 
+router.get('/assignments', function (req, res) {
+  let db = req.app.get('db')
+  db("wombles")
+    .select('wombles.id','wombles.name', 'rubbish.name as rubbish')
+    .join('rubbish', 'wombles.rubbish_id', '=', 'rubbish.id')
+  .then((result) => {
+    res.render('assignments', {wombles:result})
+  })
+})
+
 router.get('/add', function (req, res) {
   res.render('add')
 })
