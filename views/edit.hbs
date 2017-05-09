@@ -1,14 +1,26 @@
-<h2>Editing The Characteristic of: {{name}}</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit OMG</title>
+  </head>
+  <body>
+    <div class="app">
+        <h2>Editing The Characteristic of: {{name}}</h2>
 
-<form action=/edit/{{id}} method="post">
-    <select name="characteristics">
-    <option value="99901">wise</option>
-    <option value="99902">handy</option>
-    <option value="99903">french</option>
-    <option value="99904">lazy</option>
-    <option value="99905">clever</option>
-    <option value="99906">sporty</option>
-    <option value="99907">bossy</option>
-  </select>
-  <input type=submit>
-</form>
+        <form action=/edit/{{id}} method="post">
+            <select name="characteristics" id="character">
+            <option value="99901">wise</option>
+            <option value="99902">handy</option>
+            <option value="99903">french</option>
+            <option value="99904">lazy</option>
+            <option value="99905">clever</option>
+            <option value="99906">sporty</option>
+            <option value="99907">bossy</option>
+          </select>
+          <input type=submit>
+        </form>
+    </div>
+  </body>
+  <script src="/client.js"></script>
+</html>
